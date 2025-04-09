@@ -55,3 +55,6 @@ def redirect_to_url(short_code: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="URL not found")
 
     return RedirectResponse(url.original_url)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app.main:app", host="0.0.0.0", port=10000)
